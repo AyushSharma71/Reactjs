@@ -1,29 +1,32 @@
 import React from 'react'
+import { Bookmark } from 'lucide-react';
 
-function Card(props) {
+
+function Card({logo,company,posted,role,tags,salary,location}) {
 
   return (
-    <div className="max-w-xs rounded-md shadow-md bg-black text-gray-100">
-      <img
-        src="https://picsum.photos/301"
-        alt=""
-        className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500"
-      />
-      <div className="flex flex-col justify-between p-6 space-y-8">
-        <div className="space-y-2">
-          <h2 className="text-3xl font-semibold tracking-wide">{props.name}</h2>
-          <p className="text-gray-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-            tempora ipsum soluta amet corporis accusantium aliquid consectetur
-            eaque!
-          </p>
+     <div>
+      <div className="card">
+      <div className="top">
+        <img src= {logo} alt = "logo" width={100} height={100}/>
+        <button>Save <Bookmark size={20} strokeWidth={1} /></button>
+      </div>
+      <div className="center">
+        <h1>{company}</h1>
+        <p>{posted}</p>
+        <h2>{role}</h2>
+        <div className='jobtags'>
+          <div className="parttime">{tags[0]}</div>
+          <div className="seniorlevel">{tags[1]}</div>
         </div>
-        <button
-          type="button"
-          className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-gray-800 text-gray-200"
-        >
-          Read more
-        </button>
+      </div>
+      <div className="bottom">
+        <div className="paylocation">
+          <h1>{salary}</h1>
+          <h2>{location}</h2>
+        </div>
+        <button>Apply Now</button>
+      </div>
       </div>
     </div>
   );
